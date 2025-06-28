@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmvlqt15frrcg"]
+
+[ext_resource type="Script" path="res://Data/Scripts/game_scene.gd" id="1_6txbn"]
+[ext_resource type="PackedScene" uid="uid://hlxdge0cirgc" path="res://Data/LeftPlayer.tscn" id="1_kaqkl"]
+[ext_resource type="PackedScene" uid="uid://rn8okvtecpxb" path="res://Data/RightPlayer.tscn" id="2_5nyrw"]
+[ext_resource type="FontFile" uid="uid://bqmglpkfyr1mm" path="res://Data/Fonts/FreeSans.ttf" id="2_sxi10"]
+[ext_resource type="PackedScene" uid="uid://cs0m2i1pd5ren" path="res://Data/BALL.tscn" id="3_nl320"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6txbn"]
+bg_color = Color(0.121704, 0.0101307, 0.170601, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqkl"]
+size = Vector2(1172.75, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxi10"]
+size = Vector2(20, 742)
+
+[node name="gameScene" type="Node2D"]
+script = ExtResource("1_6txbn")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6txbn")
+
+[node name="PointShow" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.5
+offset_top = 26.0
+offset_right = 20.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_sxi10")
+theme_override_font_sizes/font_size = 25
+
+[node name="wallTop" type="StaticBody2D" parent="." groups=["bar"]]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallTop"]
+position = Vector2(575.5, 0)
+shape = SubResource("RectangleShape2D_kaqkl")
+
+[node name="wallBottom" type="StaticBody2D" parent="." groups=["bar"]]
+position = Vector2(0, 658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallBottom"]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_kaqkl")
+
+[node name="LeftPlayer" parent="." groups=["player"] instance=ExtResource("1_kaqkl")]
+position = Vector2(34, 353)
+
+[node name="RirghtPlayer" parent="." groups=["player"] instance=ExtResource("2_5nyrw")]
+position = Vector2(1121, 351)
+
+[node name="BALL" parent="." instance=ExtResource("3_nl320")]
+position = Vector2(576, 351)
+
+[node name="RightPoint" type="StaticBody2D" parent="."]
+position = Vector2(-29, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPoint"]
+position = Vector2(0, 327)
+shape = SubResource("RectangleShape2D_sxi10")
+
+[node name="LeftPoint" type="StaticBody2D" parent="."]
+position = Vector2(1183, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPoint"]
+position = Vector2(0, 327)
+shape = SubResource("RectangleShape2D_sxi10")

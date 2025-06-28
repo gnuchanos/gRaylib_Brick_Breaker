@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs0m2i1pd5ren"]
+
+[ext_resource type="Script" path="res://Data/Scripts/ball.gd" id="1_i24h0"]
+[ext_resource type="AudioStream" uid="uid://d1kqr0f232uyb" path="res://Data/Sound/hit.ogg" id="2_meww5"]
+[ext_resource type="AudioStream" uid="uid://d0y6kqm3x08ko" path="res://Data/Sound/teleport.ogg" id="3_3s2hi"]
+[ext_resource type="AudioStream" uid="uid://0e5upnvg8wg1" path="res://Data/Sound/music.ogg" id="3_7tn13"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hlj72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlj72"]
+size = Vector2(50, 50)
+
+[node name="BALL" type="Node2D"]
+script = ExtResource("1_i24h0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1.19209e-07, -7.62939e-06)
+scale = Vector2(50, 50)
+mesh = SubResource("QuadMesh_hlj72")
+
+[node name="BALLAREA" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BALLAREA"]
+shape = SubResource("RectangleShape2D_hlj72")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_meww5")
+
+[node name="Teleport" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3s2hi")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7tn13")
+
+[connection signal="body_entered" from="BALLAREA" to="." method="_on_ballarea_body_entered"]
+[connection signal="body_exited" from="BALLAREA" to="." method="_on_ballarea_body_exited"]

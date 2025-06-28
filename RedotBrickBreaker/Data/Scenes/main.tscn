@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://b40hmvo2mt0bh"]
+
+[ext_resource type="Script" path="res://Data/Scripts/main.gd" id="1_0ungv"]
+[ext_resource type="FontFile" uid="uid://bqmglpkfyr1mm" path="res://Data/Fonts/FreeSans.ttf" id="1_2w77q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qo4d"]
+bg_color = Color(0.109422, 0.0195315, 0.195895, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ungv"]
+bg_color = Color(0.703244, 0.201565, 0.84697, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xla3w"]
+bg_color = Color(0.426968, 0.0621361, 0.52445, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i61b3"]
+bg_color = Color(0.214145, 0.0176092, 0.269265, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ungv")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qo4d")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 556.0
+offset_right = 338.0
+offset_bottom = 622.0
+theme_override_fonts/font = ExtResource("1_2w77q")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ungv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xla3w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i61b3")
+text = " Star Game "
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
