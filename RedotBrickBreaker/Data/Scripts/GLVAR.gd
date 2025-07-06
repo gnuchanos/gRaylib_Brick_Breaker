@@ -1,7 +1,7 @@
 extends Node
 
-
-var leftPoint: int  = 0
-var RightPoint: int = 0
+var SpeedX: float   = -300.0
+var SpeedY: float   = -300.0
 var BallOut: bool   = false
-var Kazanan: String = ""
+var PointString: String = ""
+var Point: float    = 0

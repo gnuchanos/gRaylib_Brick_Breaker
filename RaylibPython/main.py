@@ -101,6 +101,24 @@ class Game:
         # Ball
         self.BALL = BALL(Rectangle(self.ScreenWidth/2-25, self.ScreenHeight/2-25, 50, 50), GVector2(-300, -300), GColor("#df9fff").Get)
 
+        # Bricks
+        self.Bricks: Entity = []
+        self.Brick0_SteapX = 110
+        self.Brick0_SteapY =   5
+        self.Bricks0_currentPositionX = 77
+        self.Bricks0_currentPositionY = 50
+        self.Bricks0_index = 0
+
+        for i in range(7):
+            self.Bricks0_currentPositionX = 77
+            self.Bricks0_currentPositionY += 25+self.Brick0_SteapY
+
+            for j in range(10):
+                self.Bricks0_currentPositionX += self.Brick0_SteapX
+                self.Bricks[j] = Paddle(Rectangle(self.Bricks0_currentPositionX, self.Bricks0_currentPositionY, 100, 25), GVector2(0, 0), BLUE)
+
+        self.Bricks0_count = len(self.Bricks)
+
 
         # Sounds
         self.HitSound = GSound("./Data/Sound/hit.ogg")

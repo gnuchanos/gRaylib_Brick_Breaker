@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://hlxdge0cirgc"]
+[gd_scene load_steps=4 format=3 uid="uid://bwmjv875q8oxp"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Player.gd" id="1_loq8k"]
+[ext_resource type="Script" path="res://Data/Scripts/Player.gd" id="1_vrtsf"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bdqvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_loq8k"]
 size = Vector2(38, 226)
 
-[node name="LeftPlayer" type="CharacterBody2D"]
+[node name="Player" type="Area2D"]
 rotation = -1.5708
-script = ExtResource("1_loq8k")
+script = ExtResource("1_vrtsf")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(1.19209e-07, -7.62939e-06)
@@ -18,3 +18,5 @@ mesh = SubResource("QuadMesh_bdqvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_loq8k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

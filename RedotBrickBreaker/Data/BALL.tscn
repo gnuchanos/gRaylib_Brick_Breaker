@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs0m2i1pd5ren"]
+[gd_scene load_steps=8 format=3 uid="uid://cs0m2i1pd5ren"]
 
 [ext_resource type="Script" path="res://Data/Scripts/ball.gd" id="1_i24h0"]
 [ext_resource type="AudioStream" uid="uid://d1kqr0f232uyb" path="res://Data/Sound/hit.ogg" id="2_meww5"]
@@ -7,16 +7,22 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_hlj72"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s2hi"]
+size = Vector2(48, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlj72"]
 size = Vector2(50, 50)
 
-[node name="BALL" type="Node2D"]
+[node name="BALL" type="CharacterBody2D"]
 script = ExtResource("1_i24h0")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(1.19209e-07, -7.62939e-06)
 scale = Vector2(50, 50)
 mesh = SubResource("QuadMesh_hlj72")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3s2hi")
 
 [node name="BALLAREA" type="Area2D" parent="."]
 

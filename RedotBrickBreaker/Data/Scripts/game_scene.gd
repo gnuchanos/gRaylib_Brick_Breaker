@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var PointShow = $Panel/PointShow
+@onready var PointShow = $bg/PointShow
 
 func _ready() -> void:
-	PointShow.text = "Left Player: " + str(GLVAR.leftPoint) + " | " + "Right Player: " + str(GLVAR.RightPoint)
+	PointShow.text = "Player Point: " + str(GLVAR.Point)
 
 func _process(delta: float) -> void:
 	if GLVAR.BallOut:
-		PointShow.text = "Left Player: " + str(GLVAR.leftPoint) + " | " + "Right Player: " + str(GLVAR.RightPoint)
+		PointShow.text = "Player Point: " + str(GLVAR.Point) 

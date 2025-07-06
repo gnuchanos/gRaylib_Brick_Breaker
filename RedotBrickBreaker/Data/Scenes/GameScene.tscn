@@ -1,74 +1,189 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmvlqt15frrcg"]
 
 [ext_resource type="Script" path="res://Data/Scripts/game_scene.gd" id="1_6txbn"]
-[ext_resource type="PackedScene" uid="uid://hlxdge0cirgc" path="res://Data/LeftPlayer.tscn" id="1_kaqkl"]
-[ext_resource type="PackedScene" uid="uid://rn8okvtecpxb" path="res://Data/RightPlayer.tscn" id="2_5nyrw"]
 [ext_resource type="FontFile" uid="uid://bqmglpkfyr1mm" path="res://Data/Fonts/FreeSans.ttf" id="2_sxi10"]
 [ext_resource type="PackedScene" uid="uid://cs0m2i1pd5ren" path="res://Data/BALL.tscn" id="3_nl320"]
+[ext_resource type="PackedScene" uid="uid://bwmjv875q8oxp" path="res://Data/Player.tscn" id="3_sxi10"]
+[ext_resource type="PackedScene" uid="uid://c4ivwannjha1p" path="res://Data/brick.tscn" id="5_sxi10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6txbn"]
 bg_color = Color(0.121704, 0.0101307, 0.170601, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqkl"]
-size = Vector2(1172.75, 20)
+size = Vector2(1652, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxi10"]
-size = Vector2(20, 742)
+size = Vector2(20, 994.925)
 
 [node name="gameScene" type="Node2D"]
 script = ExtResource("1_6txbn")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="bg" type="Panel" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6txbn")
+metadata/_edit_lock_ = true
 
-[node name="PointShow" type="Label" parent="Panel"]
+[node name="PointShow" type="Label" parent="bg"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -19.5
-offset_top = 26.0
-offset_right = 20.5
-offset_bottom = 54.0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 20.0
+offset_bottom = 49.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_sxi10")
 theme_override_font_sizes/font_size = 25
+metadata/_edit_lock_ = true
 
-[node name="wallTop" type="StaticBody2D" parent="." groups=["bar"]]
-position = Vector2(0, -10)
+[node name="wallTop" type="StaticBody2D" parent="."]
+position = Vector2(212, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wallTop"]
-position = Vector2(575.5, 0)
+position = Vector2(587, 0)
 shape = SubResource("RectangleShape2D_kaqkl")
 
-[node name="wallBottom" type="StaticBody2D" parent="." groups=["bar"]]
-position = Vector2(0, 658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wallBottom"]
-position = Vector2(576, 0)
-shape = SubResource("RectangleShape2D_kaqkl")
-
-[node name="LeftPlayer" parent="." groups=["player"] instance=ExtResource("1_kaqkl")]
-position = Vector2(34, 353)
-
-[node name="RirghtPlayer" parent="." groups=["player"] instance=ExtResource("2_5nyrw")]
-position = Vector2(1121, 351)
+[node name="Player" parent="." instance=ExtResource("3_sxi10")]
+position = Vector2(799, 824)
 
 [node name="BALL" parent="." instance=ExtResource("3_nl320")]
-position = Vector2(576, 351)
+position = Vector2(799, 551)
 
-[node name="RightPoint" type="StaticBody2D" parent="."]
-position = Vector2(-29, 0)
+[node name="RightPoint" type="StaticBody2D" parent="." groups=["bar"]]
+position = Vector2(-10, 95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightPoint"]
 position = Vector2(0, 327)
 shape = SubResource("RectangleShape2D_sxi10")
 
-[node name="LeftPoint" type="StaticBody2D" parent="."]
-position = Vector2(1183, 0)
+[node name="LeftPoint" type="StaticBody2D" parent="." groups=["bar"]]
+position = Vector2(1611, 95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPoint"]
 position = Vector2(0, 327)
 shape = SubResource("RectangleShape2D_sxi10")
+
+[node name="AllBrick" type="Node2D" parent="."]
+position = Vector2(204, 49)
+
+[node name="Brick" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(168, 82)
+
+[node name="Brick2" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(281, 82)
+
+[node name="Brick3" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(398, 82)
+
+[node name="Brick4" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(511, 82)
+
+[node name="Brick5" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(626, 82)
+
+[node name="Brick6" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(739, 82)
+
+[node name="Brick7" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(856, 82)
+
+[node name="Brick8" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(969, 82)
+
+[node name="Brick9" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(168, 117)
+
+[node name="Brick10" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(281, 117)
+
+[node name="Brick11" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(398, 117)
+
+[node name="Brick12" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(511, 117)
+
+[node name="Brick13" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(626, 117)
+
+[node name="Brick14" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(739, 117)
+
+[node name="Brick15" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(856, 117)
+
+[node name="Brick16" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(969, 117)
+
+[node name="Brick17" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(168, 154)
+
+[node name="Brick18" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(281, 154)
+
+[node name="Brick19" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(398, 154)
+
+[node name="Brick20" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(511, 154)
+
+[node name="Brick21" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(626, 154)
+
+[node name="Brick22" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(739, 154)
+
+[node name="Brick23" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(856, 154)
+
+[node name="Brick24" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(969, 154)
+
+[node name="Brick25" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(168, 194)
+
+[node name="Brick26" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(281, 194)
+
+[node name="Brick27" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(398, 194)
+
+[node name="Brick28" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(511, 194)
+
+[node name="Brick29" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(626, 194)
+
+[node name="Brick30" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(739, 194)
+
+[node name="Brick31" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(856, 194)
+
+[node name="Brick32" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(969, 194)
+
+[node name="Brick33" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(168, 234)
+
+[node name="Brick34" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(281, 234)
+
+[node name="Brick35" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(398, 234)
+
+[node name="Brick36" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(511, 234)
+
+[node name="Brick37" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(626, 234)
+
+[node name="Brick38" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(739, 234)
+
+[node name="Brick39" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(856, 234)
+
+[node name="Brick40" parent="AllBrick" instance=ExtResource("5_sxi10")]
+position = Vector2(969, 234)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4ivwannjha1p"]
+
+[ext_resource type="Script" path="res://Data/Scripts/brick.gd" id="1_bfs65"]
+[ext_resource type="AudioStream" uid="uid://d1kqr0f232uyb" path="res://Data/Sound/hit.ogg" id="2_t6rh1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6txbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33v4w"]
+size = Vector2(100, 25)
+
+[node name="Brick" type="Area2D" groups=["bricks"]]
+script = ExtResource("1_bfs65")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(2.10702e-05, -5.96046e-08)
+scale = Vector2(100, 25)
+mesh = SubResource("QuadMesh_6txbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_33v4w")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_t6rh1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
